@@ -21,12 +21,13 @@ using Microsoft.Maui.Embedding;
 using Microsoft.Maui.Controls.Hosting;
 using Telerik.Maui.Controls;
 using Telerik.Maui.Controls.Compatibility;
-using RadComboBoxSample;
+using RadSegmentedControlSample;
+using RadSegmentedControlSample.Platforms.Android;
 
-namespace RadComboBoxSample
+namespace RadSegmentedControlSample
 {
     [Activity(Label = "@string/app_name", MainLauncher = true)]
-    public class MainActivity : Activity
+    public class MainActivity : FragmentActivity
     {
         protected override void OnCreate(Bundle? savedInstanceState)
         {
@@ -40,7 +41,15 @@ namespace RadComboBoxSample
                 var builder = MauiApp.CreateBuilder();
                 builder.UseMauiEmbedding<App>();
                 builder.UseMauiApp<App>()
-                    .UseTelerik();
+                    .UseTelerik()
+                    .UseTelerikControls();
+////uncomment to see working with workaround.
+//.ConfigureMauiHandlers((handlers) =>
+//                                         {
+//#if __ANDROID__
+//                                             handlers.AddHandler(typeof(RadSegmentedControl), typeof(Telerik.Maui.RadSegmentedControlHandler));
+//#endif
+//                                         });
 
                 var mauiApp = builder.Build();
 
@@ -48,9 +57,9 @@ namespace RadComboBoxSample
 
                 var mainPage = new MainPage();
 
-                var mauiView = mainPage.ToPlatform(mauiContext);
+                AndroidX.Fragment.App.Fragment fragment = mainPage.CreateSupportFragment(mauiContext);
 
-                SetContentView(mauiView);
+                SupportFragmentManager.BeginTransaction().SetReorderingAllowed(true).Add(Resource.Id.fragment_container_view, fragment, null).Commit();                
             }
             catch (Exception ex)
             {

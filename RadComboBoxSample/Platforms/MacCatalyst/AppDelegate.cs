@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace RadComboBoxSample;
+namespace RadSegmentedControlSample;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

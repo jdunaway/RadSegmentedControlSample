@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui" 
-             x:Class="RadComboBoxSample.MainPage">
+             x:Class="RadSegmentedControlSample.MainPage">
 
     <ScrollView>
         <VerticalStackLayout
@@ -29,21 +29,20 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <telerik:RadComboBox AutomationId="staticItemsComboBox">
-                <telerik:RadComboBox.ItemsSource>
+            <telerik:RadSegmentedControl x:Name="segmentControlText"
+                                HeightRequest="40"
+                                HorizontalOptions="Center"
+                                SelectedSegmentBackgroundColor="#007299"    
+                                SelectedSegmentTextColor="White">
+                <telerik:RadSegmentedControl.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>USA</x:String>
-                        <x:String>Uganda</x:String>
-                        <x:String>Ukraine</x:String>
-                        <x:String>Canada</x:String>
-                        <x:String>France</x:String>
-                        <x:String>Italy</x:String>
-                        <x:String>United Kingdom</x:String>
-                        <x:String>China</x:String>
-                        <x:String>Japan</x:String>
+                        <x:String>All</x:String>
+                        <x:String>Skipped</x:String>
+                        <x:String>Unserviced</x:String>
+                        <x:String>New</x:String>
                     </x:Array>
-                </telerik:RadComboBox.ItemsSource>
-            </telerik:RadComboBox>
+                </telerik:RadSegmentedControl.ItemsSource>
+            </telerik:RadSegmentedControl>
 
         </VerticalStackLayout>
     </ScrollView>

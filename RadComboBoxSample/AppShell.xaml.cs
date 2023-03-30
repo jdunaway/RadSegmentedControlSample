@@ -1,4 +1,4 @@
-﻿namespace RadComboBoxSample;
+﻿namespace RadSegmentedControlSample;
 
 public partial class AppShell : Shell
 {

@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace RadComboBoxSample;
+namespace RadSegmentedControlSample;
 
 public class Program
 {
